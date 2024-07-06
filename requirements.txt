@@ -1,0 +1,4 @@
+django
+cv2
+ultralytics
+transformers

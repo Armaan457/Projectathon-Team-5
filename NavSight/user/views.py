@@ -1,18 +1,15 @@
-import threading
 from django.http import StreamingHttpResponse
 from django.shortcuts import render
 import cv2
 from ultralytics import YOLO
-import math
 from django.views.decorators import gzip
+from transformers import BlipProcessor, BlipForConditionalGeneration
 
 # Create your views here.
 
 class VideoCamera(object):
     def __init__(self):
         self.video = cv2.VideoCapture(0)
-        (self.grabbed, self.frame) = self.video.read()
-        threading.Thread(target=self.update, args=()).start()
 
     def __del__(self):
         self.video.release()
@@ -87,3 +84,33 @@ def yolo(request):
         pass
     
     return render(request, 'yolo.html')
+
+
+@gzip.gzip_page
+def blip(request):
+    try:
+        cam = VideoCamera()
+        def gen(camera):
+            success, img = camera.video.read()
+            if success: 
+                processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-large")
+                model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-large")
+
+                image = img
+
+                inputs = processor(image, return_tensors="pt")
+
+                out = model.generate(**inputs)
+                print(processor.decode(out[0], skip_special_tokens=True))
+
+                _ , jpeg = cv2.imencode('.jpg', img)
+                frame = jpeg.tobytes()
+                yield (b'--frame\r\n'
+                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+        return StreamingHttpResponse(gen(cam), content_type='multipart/x-mixed-replace; boundary=frame')
+
+    except:
+        print("An error occured")
+        pass
+    
+    return render(request, 'blip.html')

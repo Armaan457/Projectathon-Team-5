@@ -16,9 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from user.views import yolo
+from user.views import yolo, blip
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('yolo/',yolo,name='yolo')
+    path('yolo/',yolo,name='yolo'),
+    path('blip/',blip,name='blip'),
 ]
