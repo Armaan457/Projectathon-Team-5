@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NavSight Login</title>
+    <link rel="stylesheet" href="{% static 'admin/css/four.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <div class="logo">
+                <h1>NavSight <span class="eye">👁️</span></h1>
+                <p>Here to guide you every step of the way</p>
+            </div>
+            {% if messages %}
+             <ul class="messages">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+                   {% endfor %}
+                         </ul>
+                   {% endif %}
+            <form action="login" method="POST">
+                {%csrf_token%}
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="username" id="email" name="username" placeholder="USERNAME">
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Abcd@1234">
+                </div>
+                <input type="submit" class="login-button">
+            </form>
+            <div class="alternative-login">
+                <p>OR</p>
+                <button class="google-login">Continue with Google</button>
+                <button class="apple-login">Continue with Apple</button>
+            </div>
+            <p class="signup">Don't have an Account? <a href="#">Make One</a></p>
+            <p class="goback"><a href="#">Go Back</a></p>
+        </div>
+    </div>
+</body>
+</html>

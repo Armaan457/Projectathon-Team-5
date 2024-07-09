@@ -17,9 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from user.views import yolo, blip
+from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('yolo/',yolo,name='yolo'),
     path('blip/',blip,name='blip'),
+    path('', include('NavSight.urls')),
 ]

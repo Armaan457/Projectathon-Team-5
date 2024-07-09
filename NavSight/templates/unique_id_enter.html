@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NavSight ID Entry</title>
+    <link rel="stylesheet" href="{% static 'admin/css/six.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="id-entry-box">
+            <div class="logo">
+                <h1>NavSight <span class="eye">👁️</span></h1>
+            </div>
+            <p>Kindly enter the unique ID of the Navigatee</p>
+            <form method="POST">
+                {%csrf_token%}
+                <div class="input-group">
+                    <input type="text" id="unique-id" name="uniqueid" placeholder="#000AA11BB">
+                </div>
+                <button type="submit" class="continue-button">Continue</button>
+            </form>
+            <p class="goback"><a href="#">Go Back</a></p>
+        </div>
+    </div>
+</body>
+</html>

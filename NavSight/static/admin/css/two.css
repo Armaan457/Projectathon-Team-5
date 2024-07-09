@@ -1,0 +1,70 @@
+/* Reset some basic elements */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(180deg, #0172B2 0%, #001645 100%);
+}
+
+/* Main container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Content area */
+.content {
+    background: white;
+    border-radius: 35px;
+    padding: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+}
+
+/* Logo section */
+.logo-section {
+    margin-bottom: 50px;
+}
+
+.logo {
+    font-family: 'Lobster', cursive;
+    font-size: 4em;
+    margin: 0;
+    color: #001645;
+}
+
+.icon {
+    font-size: 0.5em;
+}
+
+/* ID section */
+.id-section {
+    text-align: center;
+}
+
+.tagline {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.unique-id {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #001645;
+    border-radius: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em;
+    color: #001645;
+    background: white;
+}
