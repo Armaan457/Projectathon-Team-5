@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NavSight</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        setTimeout(function() {
+            window.location.href = {% url 'home' %};
+        }, 5000);  // 5000 milliseconds = 5 seconds
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1 class="logo">NavSight <span class="icon">👁</span></h1>
+            <p class="tagline">Here to guide you every step of the way</p>
+        </div>
+    </div>
+</body>
+</html>

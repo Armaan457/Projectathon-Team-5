@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NavSight</title>
+    <link rel="stylesheet" href="{% static 'admin/css/one.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="logo-section">
+                <h1 class="logo">NavSight <span class="icon">👁️</span></h1>
+                <p class="tagline">Here to guide you every step of the way</p>
+            </div>
+            <div class="button-section">
+                <form action= {% url 'uniqueid1' %} method="">
+                <button type="submit" class="btn">Navigatee</button>
+                </form>
+                <div class="or-divider">
+                    <span>OR</span>
+                </div>
+                <form action={% url 'log_signup' %} method="">
+                    <button type="submit" class="btn">Navigator</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'admin/css/styles.css' %}">
+</head>
+<body>
+    {%for feature in features%}
+    <h1>{{feature.name}}</h1>
+    <form action="{% url 'number' %}" method="POST">
+        {% csrf_token %}
+        <label for="name"></label>
+        <textarea name="name" rows="30" cols="30"></textarea>
+        <br>
+        <input type="submit" id="name">
+        {% endfor %}
+    </form>
+</body>
+</html>

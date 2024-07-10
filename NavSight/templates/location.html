@@ -1,0 +1,40 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NavSight</title>
+    <link rel="stylesheet" href="{% static 'admin/css/eight.css' %}">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">
+                <h1>NavSight<span class="logo-icon">👁️</span></h1>
+            </div>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href={% url "navigatorhome"%} class="nav-link">
+                        <span class="icon">🏠</span>
+                        <span class="text">Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href={% url "location"%} class="nav-link">
+                        <span class="icon">📍</span>
+                        <span class="text">Location</span>
+                    </a>
+                </li>
+            </ul>
+            <button class="logout-btn">Log Out</button>
+        </nav>
+        <main class="main-content">
+            <h1 >Live Location</h1>
+            <div style="height: 500px; width: 500px;">
+            </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
